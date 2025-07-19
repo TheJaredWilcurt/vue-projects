@@ -2,10 +2,74 @@
 <html>
   <head>
     <title>Vue Libraries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="app">
+    <div class="wrapper">
+      <div class="cards">
+        <a
+          href="https://TheJaredWilcurt.com/vue-doxen"
+          class="card"
+          target="_blank"
+        >
+          <img
+            alt="Vue-Doxen Logo"
+            src="images/doxen.png"
+          />
+          <span class="title">
+            Vue-Doxen
+          </span>
+          <span class="description">
+            Vue Component Documentation
+          </span>
+        </a>
+
+        <a
+          href="https://vue-dev-tools-accessibility.github.io"
+          class="card"
+          target="_blank"
+        >
+          <img
+            alt="Vue-Dev-Tools-Accessibility Logo"
+            src="images/vdta.svg"
+          />
+          <span class="title">
+            Vue-Dev-Tools-Accessibility
+          </span>
+          <span class="description">
+            Accessibility plugin for<br/>Vite-Vue-DevTools
+          </span>
+        </a>
+
+        <a
+          href="https://TheJaredWilcurt.com/vue-snapshot-serializer"
+          class="card"
+          target="_blank"
+        >
+          <img
+            alt="Vue-Snapshot-Serializer Logo"
+            src="images/vss.png"
+          />
+          <span class="title">
+            Vue-Snapshot-Serializer
+          </span>
+          <span class="description">
+            Vue unit testing tool
+          </span>
+        </a>
+
+        <!-- NW Vue boilerplate -->
+        <!-- Constants plugin -->
+      </div>
     </div>
+    <script>
+      let styles;
+      if (window.location?.hash?.includes('style')) {
+        // http://localhost:5173/index.html/#/?style=background:#000;color:#CCC;
+        styles = window.location.hash.replace('#/?style=', '');
+        document.body.style = styles;
+      }
+    </script>
   </body>
 </html>

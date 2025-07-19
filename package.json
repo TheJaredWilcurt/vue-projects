@@ -1,0 +1,27 @@
+{
+  "name": "vue-projects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "vite"
+  },
+  "devDependencies": {
+    "vite": "^7.0.5"
+  },
+  "description": "Vue Projects made by TheJaredWilcurt",
+  "homepage": "https://github.com/TheJaredWilcurt/vue-projects#readme",
+  "bugs": {
+    "url": "https://github.com/TheJaredWilcurt/vue-projects/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheJaredWilcurt/vue-projects.git"
+  },
+  "license": "MIT",
+  "author": "The Jared Wilcurt",
+  "volta": {
+    "node": "24.4.1",
+    "npm": "11.4.2"
+  }
+}
