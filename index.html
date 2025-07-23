@@ -4,18 +4,59 @@
     <title>Vue Libraries</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
+    <!-- http://cdn.jsdelivr.net/npm/vue@3.5.17/dist/vue.global.prod.js -->
+    <script type="text/javascript" src="./vendors/vue.global.prod.js"></script>
   </head>
   <body>
-    <div class="wrapper">
-      <VueProjectsCards />
+    <div v-cloak id="app" class="wrapper">
+      <vue-projects-cards></vue-projects-cards>
     </div>
+    <!-- https://cdn.jsdelivr.net/npm/vue3-sfc-loader@0.9.5/dist/vue3-sfc-loader.js -->
+    <script type="text/javascript" src="./vendors/vue3-sfc-loader.js"></script>
+    <script>
+      window.httpVueLoader = function (componentPath) {
+        const sfcLoaderOptions = {
+          moduleCache: {
+            vue: Vue
+          },
+          getFile: async function (url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+              throw Object.assign(new Error(response.statusText + ' ' + url), { response });
+            }
+            return await response.text();
+          },
+          addStyle: function (textContent) {
+            const style = Object.assign(document.createElement('style'), { textContent });
+            const reference = document.head.getElementsByTagName('style')[0] || null;
+            document.head.insertBefore(style, reference);
+          }
+        };
+        return Vue.defineAsyncComponent(function () {
+          return window['vue3-sfc-loader'].loadModule(componentPath, sfcLoaderOptions);
+        });
+      };
+    </script>
     <script>
       let styles;
-      if (window.location?.hash?.includes('style')) {
-        // http://localhost:5173/index.html/#/?style=background:#000;color:#CCC;
-        styles = window.location.hash.replace('#/?style=', '');
+      if (window.location?.href?.includes('styles')) {
+        styles = window.location.href.split('styles=')[1];
+      } else if (window.location?.href?.includes('style')) {
+        styles = window.location.href.split('style=')[1];
+      }
+      if (styles) {
         document.body.style = styles;
       }
+    </script>
+    <script>
+      const app = Vue.createApp({
+        name: 'App',
+        components: {
+          // Importing child components is a little different
+          'vue-projects-cards': httpVueLoader('./VpCards.vue')
+        }
+      });
+      app.mount('#app');
     </script>
   </body>
 </html>

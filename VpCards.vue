@@ -9,7 +9,7 @@
       <img
         :alt="project.title + ' logo'"
         class="vue-projects-image"
-        :src="'images/' + project.src"
+        :src="'https://TheJaredWilcurt.com/vue-projects/images/' + project.src"
       />
       <span
         v-html="project.title"
@@ -46,8 +46,13 @@ export default {
           href: 'https://TheJaredWilcurt.com/vue-snapshot-serializer',
           src: 'vss.png',
           title: 'Vue-Snapshot-Serializer'
+        },
+        {
+          description: 'Vue Desktop App Boilerplate',
+          href: 'https://github.com/nwutils/nw-vue3-boilerplate',
+          src: 'nw-vue.png',
+          title: 'NW.js + Vue 3'
         }
-        // NW Vue boilerplate
         // Constants plugin
       ]
     };
@@ -72,14 +77,15 @@ export default {
   color: currentColor;
   text-decoration: none;
 }
-.vue-projects-img {
+.vue-projects-image {
   max-width: 100px;
   max-height: 100px;
+  background-color: #FFFFFF05;
   border-radius: 8px;
   box-shadow: 2px 2px 5px #0006;
   transition: 0.5s ease transform;
 }
-.vue-projects-card:hover .vue-projects-img {
+.vue-projects-card:hover .vue-projects-image {
   transform: scale(1.05);
 }
 .vue-projects-title {
