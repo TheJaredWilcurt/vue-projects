@@ -54,6 +54,7 @@ export default {
           title: 'NW.js + Vue 3'
         }
         // Constants plugin
+        // Options API Boilerplate
       ]
     };
   }
