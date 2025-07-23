@@ -4,10 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "vite"
+    "start": "serve ."
   },
   "devDependencies": {
-    "vite": "^7.0.5"
+    "serve": "^14.2.4"
   },
   "description": "Vue Projects made by TheJaredWilcurt",
   "homepage": "https://github.com/TheJaredWilcurt/vue-projects#readme",
