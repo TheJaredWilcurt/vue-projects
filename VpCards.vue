@@ -138,6 +138,7 @@ export default {
   font-size: 0.8rem;
   text-align: center;
   opacity: 0.65;
+  transition: 0.5s ease opacity;
 }
 .vue-projects-card:hover .vue-projects-description {
   opacity: 1.0;
